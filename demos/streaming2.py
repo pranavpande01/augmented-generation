@@ -1,6 +1,6 @@
 from llama_index.core.llms import ChatMessage
-from llama_index.llms.gemini import Gemini
-from dotenv import load_dotenv  
+from llama_index.llms.gemini import Gemini  
+from dotenv import load_dotenv
 load_dotenv()
 
 llm=Gemini(model_name="models/gemini-2.0-flash-lite")
@@ -10,5 +10,7 @@ messages=[
     ChatMessage(role="user", content="hvor mye koster en bil i Norge?"),
     ]
 
-resp=llm.chat(messages)
-print(resp)
+resp=llm.stream_chat(messages)
+for i in resp:
+    print(i.delta, end="")
+    
