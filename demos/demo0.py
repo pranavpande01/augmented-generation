@@ -7,7 +7,6 @@ reader=SimpleDirectoryReader(
  input_dir='data/pdfs'
 )
 
-
+i=0
 for docs in reader.iter_data():
-    # <do something with the documents per file>
-    print(docs,"\n\n")
+    print(len(docs))
