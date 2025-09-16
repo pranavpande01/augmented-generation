@@ -26,11 +26,11 @@ llm=GoogleGenAI(model_name="gemini-2.0-flash-lite")
 workflow=FunctionAgent(
     tools=[multiply,add,sendmail,run_command],
     llm=llm,
-    system_prompt="You are an agent that can perform basic mathematical operations using tools"
+    system_prompt="You are an agent that can perform basic calculations, send an email and perform shell commands",
 )
 
 async def main():
-    response = await workflow.run(user_msg="please create a folder in the directory with the name gacko")
+    response = await workflow.run(user_msg="please remove the folder with the name gacko")
     print(response)
 
 
