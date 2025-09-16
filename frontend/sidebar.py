@@ -22,7 +22,8 @@ class Sidebar:
                 print("OK clicked. API Key:", self.api_key)
 
         with st.sidebar.expander("Advanced Settings", expanded=False):
-            pass
+            st.text("yeah")
+            st.radio("Mode", ["Graph RAG", "Naive RAG"], key="mode_radio")
     def add_item(self):
         if "sidebar_items" not in st.session_state:
             st.session_state.sidebar_items = []
