@@ -1,9 +1,8 @@
 import streamlit as st
+from sidebar import Sidebar
 
-with st.sidebar.expander("Settings",expanded=False):
-    st.text_input("API Key",type="password")
-    if st.button("OK",type="primary"):
-        print("ok")
+
+Sidebar().render()
 
 if st.file_uploader("upload docs",accept_multiple_files=True):
     print("ok")
