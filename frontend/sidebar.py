@@ -15,9 +15,12 @@ class Sidebar:
             if st.file_uploader("Add Items",accept_multiple_files=True):
                 print("ok")
 
-
+            
             if st.button("New Session", key="new_session_btn"):
                 st.balloons()
+            if st.button("Load Session", key="load_session_btn"):
+                st.balloons()
+
 
         with st.sidebar.expander("Settings", expanded=False):
             self.api_key = st.text_input("API Key", type="password", key="api_key_input")
@@ -26,6 +29,8 @@ class Sidebar:
 
         with st.sidebar.expander("Advanced Settings", expanded=False):
             a=st.radio("Mode", ["Graph RAG", "Naive RAG","Graph+Naive RAG"], key="mode_radio")
+            st.multiselect("Enhancements",["Query Expansion","Re-ranking","Self-ask"],key="enhancements_multiselect")
+            
             creativity= st.slider("creativity",0.0,1.0,0.7,key="creativity_slider")
             st.number_input("Top K",min_value=1,step=1,key="topk_input")
             b=st.number_input("Chunk Size",min_value=1,step=1,value=500,key="maxtokens_input",disabled=True if a=="Graph RAG" else False)
